@@ -5,12 +5,12 @@ RSpec.describe SessionsController, type: :controller do
   describe 'post create' do
     it 'redirects to the login page if :name is nil' do
       post :create
-      expect(response).to redirect_to controller: 'sessions', action: 'new'
+      expect(response).to redirect_to('/login')
     end
 
     it 'redirects to login page if :name is empty' do
       post :create, params: { name: '' }
-      expect(response).to redirect_to controller: 'sessions', action: 'new'
+      expect(response).to redirect_to('/login')
     end
 
     it 'sets session[:name] if :name was given' do
